@@ -1,6 +1,7 @@
 # Jacob S. Harlow — Portfolio
 
 A clean, minimal single-page portfolio built with React + Vite.
+Features dark mode and mobile friendly menu.
 
 ## Getting Started
 

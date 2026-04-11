@@ -158,6 +158,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(() =>
     localStorage.getItem("darkMode") === "true"
   );
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
 
   const toggleDark = () => {
     setDarkMode(prev => {
@@ -167,28 +168,34 @@ export default function App() {
   };
 
   const theme = {
-    bg:           darkMode ? "#0f0f0d" : "#fafaf8",
-    bgAlt:        darkMode ? "#1a1a18" : "#ffffff",
-    bgCard:       darkMode ? "#1f1f1d" : "#ffffff",
-    bgSubtle:     darkMode ? "#242420" : "#f5f4f0",
-    text:         darkMode ? "#fafaf8" : "#1a1a1a",
-    textMuted:    darkMode ? "#888"    : "#666",
-    textFaint:    darkMode ? "#555"    : "#999",
-    textVeryFaint:darkMode ? "#3a3a38" : "#aaa",
-    border:       darkMode ? "#2a2a28" : "#e8e6e0",
-    borderSubtle: darkMode ? "#222"    : "#f0efe8",
-    navBg:        darkMode ? "rgba(15,15,13,0.92)" : "rgba(250,250,248,0.92)",
-    heroDot:      darkMode ? "#1a1a18" : "#d4d0c8",
-    stackTag:     darkMode ? "#2a2a28" : "#f5f4f0",
-    expBulletDash:darkMode ? "#444"    : "#ccc",
-    hireBtn:      darkMode ? "#fafaf8" : "#1a1a1a",
-    hireBtnText:  darkMode ? "#0f0f0d" : "#fafaf8",
+    bg:            darkMode ? "#0f0f0d" : "#fafaf8",
+    bgAlt:         darkMode ? "#1a1a18" : "#ffffff",
+    bgCard:        darkMode ? "#1f1f1d" : "#ffffff",
+    bgSubtle:      darkMode ? "#242420" : "#f5f4f0",
+    text:          darkMode ? "#fafaf8" : "#1a1a1a",
+    textMuted:     darkMode ? "#888"    : "#666",
+    textFaint:     darkMode ? "#555"    : "#999",
+    textVeryFaint: darkMode ? "#3a3a38" : "#aaa",
+    border:        darkMode ? "#2a2a28" : "#e8e6e0",
+    borderSubtle:  darkMode ? "#222"    : "#f0efe8",
+    navBg:         darkMode ? "rgba(15,15,13,0.92)" : "rgba(250,250,248,0.92)",
+    heroDot:       darkMode ? "#1a1a18" : "#d4d0c8",
+    stackTag:      darkMode ? "#2a2a28" : "#f5f4f0",
+    expBulletDash: darkMode ? "#444"    : "#ccc",
+    hireBtn:       darkMode ? "#fafaf8" : "#1a1a1a",
+    hireBtnText:   darkMode ? "#0f0f0d" : "#fafaf8",
   };
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -220,39 +227,93 @@ export default function App() {
         background: theme.navBg, backdropFilter: "blur(12px)",
         borderBottom: `1px solid ${theme.border}`,
         display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "0 2rem", height: "56px", transition: "background 0.3s, border-color 0.3s",
+        padding: "0 1.5rem", height: "56px", transition: "background 0.3s, border-color 0.3s",
       }}>
         <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "13px", color: theme.textMuted, letterSpacing: "0.02em" }}>
           jacob.harlow
         </span>
-        <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-          {NAV_LINKS.map(link => (
-            <button key={link} onClick={() => scrollTo(link)} style={{
-              background: "none", border: "none", cursor: "pointer", padding: "4px 0",
-              fontSize: "13px", fontFamily: "inherit",
-              color: activeSection === link ? theme.text : theme.textFaint,
-              fontWeight: activeSection === link ? "500" : "400",
-              borderBottom: activeSection === link ? `1px solid ${theme.text}` : "1px solid transparent",
-              transition: "all 0.2s",
+
+        {/* Desktop nav */}
+        {!isMobile && (
+          <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+            {NAV_LINKS.map(link => (
+              <button key={link} onClick={() => scrollTo(link)} style={{
+                background: "none", border: "none", cursor: "pointer", padding: "4px 0",
+                fontSize: "13px", fontFamily: "inherit",
+                color: activeSection === link ? theme.text : theme.textFaint,
+                fontWeight: activeSection === link ? "500" : "400",
+                borderBottom: activeSection === link ? `1px solid ${theme.text}` : "1px solid transparent",
+                transition: "all 0.2s",
+              }}>
+                {link}
+              </button>
+            ))}
+            <button onClick={toggleDark} style={{
+              background: "none", border: `1px solid ${theme.border}`, cursor: "pointer",
+              padding: "6px 10px", borderRadius: "6px", fontSize: "13px",
+              color: theme.textMuted, fontFamily: "inherit", transition: "all 0.2s",
             }}>
-              {link}
+              {darkMode ? "☀ light" : "☾ dark"}
             </button>
-          ))}
-          <button onClick={toggleDark} style={{
-            background: "none", border: `1px solid ${theme.border}`, cursor: "pointer",
-            padding: "6px 10px", borderRadius: "6px", fontSize: "13px",
-            color: theme.textMuted, fontFamily: "inherit", transition: "all 0.2s",
+            <a href="mailto:Harlow_Jacob@outlook.com" style={{
+              background: theme.hireBtn, color: theme.hireBtnText, fontSize: "12px",
+              padding: "7px 16px", borderRadius: "6px", textDecoration: "none",
+              fontWeight: "500", letterSpacing: "0.01em", transition: "background 0.3s, color 0.3s",
+            }}>
+              Hire me
+            </a>
+          </div>
+        )}
+
+        {/* Mobile hamburger */}
+        {isMobile && (
+          <button onClick={() => setMenuOpen(!menuOpen)} style={{
+            background: "none", border: "none", cursor: "pointer",
+            padding: "8px", color: theme.text, fontSize: "20px",
+            fontFamily: "inherit", lineHeight: 1,
           }}>
-            {darkMode ? "☀ light" : "☾ dark"}
+            {menuOpen ? "✕" : "☰"}
           </button>
-          <a href="mailto:Harlow_Jacob@outlook.com" style={{
-            background: theme.hireBtn, color: theme.hireBtnText, fontSize: "12px",
-            padding: "7px 16px", borderRadius: "6px", textDecoration: "none",
-            fontWeight: "500", letterSpacing: "0.01em", transition: "background 0.3s, color 0.3s",
+        )}
+
+        {/* Mobile dropdown */}
+        {isMobile && menuOpen && (
+          <div style={{
+            position: "fixed", top: "56px", left: 0, right: 0,
+            background: theme.navBg, backdropFilter: "blur(12px)",
+            borderBottom: `1px solid ${theme.border}`,
+            display: "flex", flexDirection: "column", padding: "1rem 1.5rem", gap: "0",
+            zIndex: 99,
           }}>
-            Hire me
-          </a>
-        </div>
+            {NAV_LINKS.map(link => (
+              <button key={link} onClick={() => scrollTo(link)} style={{
+                background: "none", border: "none", borderBottom: `1px solid ${theme.border}`,
+                cursor: "pointer", padding: "14px 0",
+                fontSize: "15px", fontFamily: "inherit", textAlign: "left",
+                color: activeSection === link ? theme.text : theme.textMuted,
+                fontWeight: activeSection === link ? "500" : "400",
+              }}>
+                {link}
+              </button>
+            ))}
+            <div style={{ display: "flex", gap: "10px", paddingTop: "14px" }}>
+              <button onClick={toggleDark} style={{
+                background: "none", border: `1px solid ${theme.border}`, cursor: "pointer",
+                padding: "8px 12px", borderRadius: "6px", fontSize: "13px",
+                color: theme.textMuted, fontFamily: "inherit",
+              }}>
+                {darkMode ? "☀ light" : "☾ dark"}
+              </button>
+              <a href="mailto:Harlow_Jacob@outlook.com" style={{
+                background: theme.hireBtn, color: theme.hireBtnText, fontSize: "13px",
+                padding: "8px 16px", borderRadius: "6px", textDecoration: "none",
+                fontWeight: "500",
+              }}>
+                Hire me
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}

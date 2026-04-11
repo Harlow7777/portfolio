@@ -43,6 +43,7 @@ const PROJECTS = [
     lightBg: "#f0f9ff",
     darkBg: "#0c1e2e",
     type: "Full Stack",
+    github: "https://github.com/Harlow7777/ignition-dashboard"
   },
   {
     title: "Change Request Workflow",
@@ -52,7 +53,7 @@ const PROJECTS = [
     color: "#8b5cf6",
     lightBg: "#f5f3ff",
     darkBg: "#1a1528",
-    type: "Full Stack",
+    type: "Full Stack"
   },
   {
     title: "AWS ML Platform",
@@ -464,6 +465,20 @@ export default function App() {
                       }}>{s}</span>
                     ))}
                   </div>
+                  {(p.github || p.demo) && (
+                    <div style={{ display: "flex", gap: "8px", paddingTop: "4px", borderTop: `1px solid ${theme.borderSubtle}` }}>
+                      {p.github && (
+                        <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: p.color, textDecoration: "none", fontWeight: "500" }}>
+                          GitHub →
+                        </a>
+                      )}
+                      {p.demo && (
+                        <a href={p.demo} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: theme.textFaint, textDecoration: "none" }}>
+                          Live demo
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </FadeIn>
             ))}

@@ -43,7 +43,8 @@ const PROJECTS = [
     lightBg: "#f0f9ff",
     darkBg: "#0c1e2e",
     type: "Full Stack",
-    github: "https://github.com/Harlow7777/ignition-dashboard"
+    github: "https://github.com/Harlow7777/ignition-dashboard",
+    note: "Reference implementation — core logic demonstrated, proprietary client data excluded."
   },
   {
     title: "Change Request Workflow",
@@ -64,7 +65,8 @@ const PROJECTS = [
     lightBg: "#fffbeb",
     darkBg: "#221a08",
     type: "Cloud / Backend",
-    github: "https://github.com/Harlow7777/aws-rest-api"
+    github: "https://github.com/Harlow7777/aws-rest-api",
+    note: "Portfolio build — demonstrates AWS architecture, Terraform IaC, and multi-database patterns."
   },
   {
     title: "Enterprise User Provisioning",
@@ -469,9 +471,16 @@ export default function App() {
                   {(p.github || p.demo) && (
                     <div style={{ display: "flex", gap: "8px", paddingTop: "4px", borderTop: `1px solid ${theme.borderSubtle}` }}>
                       {p.github && (
-                        <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: p.color, textDecoration: "none", fontWeight: "500" }}>
-                          GitHub →
-                        </a>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                          <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: p.color, textDecoration: "none", fontWeight: "500" }}>
+                            GitHub →
+                          </a>
+                          {p.note && (
+                            <span style={{ fontSize: "11px", color: theme.textFaint, fontStyle: "italic", lineHeight: "1.4" }}>
+                              {p.note}
+                            </span>
+                          )}
+                        </div>
                       )}
                       {p.demo && (
                         <a href={p.demo} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: theme.textFaint, textDecoration: "none" }}>

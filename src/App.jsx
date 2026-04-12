@@ -64,6 +64,7 @@ const PROJECTS = [
     lightBg: "#fffbeb",
     darkBg: "#221a08",
     type: "Cloud / Backend",
+    github: "https://github.com/Harlow7777/aws-rest-api"
   },
   {
     title: "Enterprise User Provisioning",

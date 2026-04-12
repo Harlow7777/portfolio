@@ -48,13 +48,15 @@ const PROJECTS = [
   },
   {
     title: "Change Request Workflow",
-    desc: "Jira + Confluence integration providing structured client intake for change requests with automated routing, SLA tracking, and status notifications.",
-    stack: ["Node.js", "React", "Jira API", "Confluence API"],
+    desc: "Client-facing intake form that automatically creates a Jira ticket, sends a confirmation email to the client, and notifies the engineer.",
+    stack: ["Node.js", "Express", "React", "Jira API", "Nodemailer"],
     icon: "⬡",
     color: "#8b5cf6",
     lightBg: "#f5f3ff",
     darkBg: "#1a1528",
-    type: "Full Stack"
+    type: "Full Stack",
+    github: "https://github.com/Harlow7777/change-request",
+    note: "Portfolio build — demonstrates REST API design, third-party API integration, and automated email workflows."
   },
   {
     title: "AWS ML Platform",

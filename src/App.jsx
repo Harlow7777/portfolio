@@ -43,16 +43,20 @@ const PROJECTS = [
     lightBg: "#f0f9ff",
     darkBg: "#0c1e2e",
     type: "Full Stack",
+    github: "https://github.com/Harlow7777/ignition-dashboard",
+    note: "Reference implementation — core logic demonstrated, proprietary client data excluded."
   },
   {
     title: "Change Request Workflow",
-    desc: "Jira + Confluence integration providing structured client intake for change requests with automated routing, SLA tracking, and status notifications.",
-    stack: ["Node.js", "React", "Jira API", "Confluence API"],
+    desc: "Client-facing intake form that automatically creates a Jira ticket, sends a confirmation email to the client, and notifies the engineer.",
+    stack: ["Node.js", "Express", "React", "Jira API", "Nodemailer"],
     icon: "⬡",
     color: "#8b5cf6",
     lightBg: "#f5f3ff",
     darkBg: "#1a1528",
     type: "Full Stack",
+    github: "https://github.com/Harlow7777/change-request",
+    note: "Portfolio build — demonstrates REST API design, third-party API integration, and automated email workflows."
   },
   {
     title: "AWS ML Platform",
@@ -63,6 +67,8 @@ const PROJECTS = [
     lightBg: "#fffbeb",
     darkBg: "#221a08",
     type: "Cloud / Backend",
+    github: "https://github.com/Harlow7777/aws-rest-api",
+    note: "Portfolio build — demonstrates AWS architecture, Terraform IaC, and multi-database patterns."
   },
   {
     title: "Enterprise User Provisioning",
@@ -73,6 +79,18 @@ const PROJECTS = [
     lightBg: "#f0fdf4",
     darkBg: "#0c2018",
     type: "Backend",
+  },
+  {
+    title: "RAG Document Assistant",
+    desc: "Local RAG pipeline that ingests PDFs, redacts PII before indexing, and answers natural language questions with source citations. Features prompt versioning, per-request trace logging, and a real-time observability panel.",
+    stack: ["Python", "FastAPI", "React", "Ollama", "ChromaDB", "Presidio"],
+    icon: "⬢",
+    color: "#10b981",
+    lightBg: "#f0fdf4",
+    darkBg: "#0c2018",
+    type: "AI / Backend",
+    github: "https://github.com/Harlow7777/rag-assistant",
+    note: "Local implementation using Ollama + llama3.1:8b. Architecture is designed to swap to AWS Bedrock for production deployment."
   },
 ];
 
@@ -354,7 +372,7 @@ export default function App() {
             >
               View projects →
             </button>
-            <a href="https://drive.google.com/uc?export=download&id=1hO55PU0iUmFj-c3iJJ8z7NKI0dcwc5At" target="_blank" rel="noreferrer" style={{
+            <a href="https://drive.google.com/uc?export=download&id=1Y5SMTt6NcD-E9HGH2g9etcCqgj6X6Aad" target="_blank" rel="noreferrer" style={{
               background: "transparent", color: theme.text, border: `1px solid ${theme.border}`,
               cursor: "pointer", padding: "12px 24px", borderRadius: "8px", fontSize: "14px",
               fontFamily: "inherit", fontWeight: "400", textDecoration: "none",
@@ -464,6 +482,27 @@ export default function App() {
                       }}>{s}</span>
                     ))}
                   </div>
+                  {(p.github || p.demo) && (
+                    <div style={{ display: "flex", gap: "8px", paddingTop: "4px", borderTop: `1px solid ${theme.borderSubtle}` }}>
+                      {p.github && (
+                        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                          <a href={p.github} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: p.color, textDecoration: "none", fontWeight: "500" }}>
+                            GitHub →
+                          </a>
+                          {p.note && (
+                            <span style={{ fontSize: "11px", color: theme.textFaint, fontStyle: "italic", lineHeight: "1.4" }}>
+                              {p.note}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      {p.demo && (
+                        <a href={p.demo} target="_blank" rel="noreferrer" style={{ fontSize: "12px", color: theme.textFaint, textDecoration: "none" }}>
+                          Live demo
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </FadeIn>
             ))}

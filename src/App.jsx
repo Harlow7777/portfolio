@@ -80,6 +80,18 @@ const PROJECTS = [
     darkBg: "#0c2018",
     type: "Backend",
   },
+  {
+    title: "RAG Document Assistant",
+    desc: "Local RAG pipeline that ingests PDFs, redacts PII before indexing, and answers natural language questions with source citations. Features prompt versioning, per-request trace logging, and a real-time observability panel.",
+    stack: ["Python", "FastAPI", "React", "Ollama", "ChromaDB", "Presidio"],
+    icon: "⬢",
+    color: "#10b981",
+    lightBg: "#f0fdf4",
+    darkBg: "#0c2018",
+    type: "AI / Backend",
+    github: "https://github.com/Harlow7777/rag-assistant",
+    note: "Local implementation using Ollama + llama3.1:8b. Architecture is designed to swap to AWS Bedrock for production deployment."
+  },
 ];
 
 const EXPERIENCE = [

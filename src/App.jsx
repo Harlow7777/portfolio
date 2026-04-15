@@ -354,7 +354,7 @@ export default function App() {
             >
               View projects →
             </button>
-            <a href="resume.pdf" download="Jacob_Harlow_Resume.pdf" style={{
+            <a href="https://drive.google.com/uc?export=download&id=1FEWMbeXw-YP5_Edyuru1W0QhMV44VJs2" target="_blank" rel="noreferrer" style={{
               background: "transparent", color: theme.text, border: `1px solid ${theme.border}`,
               cursor: "pointer", padding: "12px 24px", borderRadius: "8px", fontSize: "14px",
               fontFamily: "inherit", fontWeight: "400", textDecoration: "none",

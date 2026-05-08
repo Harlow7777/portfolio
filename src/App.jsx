@@ -35,6 +35,18 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+  title: "Spring Boot REST API",
+  desc: "RESTful CRUD API built with Spring Boot 3, Spring Data JPA, and H2. Follows a layered controller/service/repository architecture with MockMvc integration tests.",
+  stack: ["Java", "Spring Boot", "Spring Data JPA", "H2", "Maven", "JUnit 5"],
+  icon: "⬕",
+  color: "#f97316",
+  lightBg: "#fff7ed",
+  darkBg: "#1f1008",
+  type: "Backend",
+  github: "https://github.com/Harlow7777/java-spring",
+  note: "Portfolio build — demonstrates Spring layered architecture, JPA entity mapping, and REST API design."
+  },
+  {
     title: "Inductive Automation Ignition Custom MES",
     desc: "Ignition project addressing customer needs and providing data visualization dashboards, work order management, quality test management and shift and crew scheduling.",
     stack: ["Python", "Jython", "Ignition", "CSS", "Java"],

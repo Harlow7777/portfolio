@@ -55,7 +55,7 @@ const PROJECTS = [
     lightBg: "#f0fdf4",
     darkBg: "#0c2018",
     type: "Full Stack",
-    github: "https://github.com/Harlow7777/django-react-todo",
+    github: "https://github.com/Harlow7777/django-react",
     note: "Portfolio build — demonstrates REST API design, CORS-enabled Django/React integration, and client-side state management."
   },
   {

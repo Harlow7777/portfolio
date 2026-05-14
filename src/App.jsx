@@ -47,16 +47,28 @@ const PROJECTS = [
   note: "Portfolio build — demonstrates Spring layered architecture, JPA entity mapping, and REST API design."
   },
   {
-    title: "Inductive Automation Ignition Custom MES",
-    desc: "Ignition project addressing customer needs and providing data visualization dashboards, work order management, quality test management and shift and crew scheduling.",
-    stack: ["Python", "Jython", "Ignition", "CSS", "Java"],
-    icon: "◈",
-    color: "#0ea5e9",
-    lightBg: "#f0f9ff",
-    darkBg: "#0c1e2e",
+    title: "Django + React Todo App",
+    desc: "Full-stack task manager with a Django REST Framework backend and React frontend. Supports full CRUD, completed/incomplete filtering, and toast notifications for every API action.",
+    stack: ["Python", "Django", "Django REST Framework", "React", "Axios", "Bootstrap", "SQLite"],
+    icon: "☑",
+    color: "#10b981",
+    lightBg: "#f0fdf4",
+    darkBg: "#0c2018",
     type: "Full Stack",
-    github: "https://github.com/Harlow7777/ignition-dashboard",
-    note: "Reference implementation — core logic demonstrated, proprietary client data excluded."
+    github: "https://github.com/Harlow7777/django-react-todo",
+    note: "Portfolio build — demonstrates REST API design, CORS-enabled Django/React integration, and client-side state management."
+  },
+  {
+    title: "Monstrum — Creature Collection Game",
+    desc: "Browser-based creature collection RPG with weighted roll system, turn-based battles, XP/evolution mechanics, pet companions, and a full avatar unlock system. Backed by Supabase for auth and real-time persistence.",
+    stack: ["Vite", "Supabase", "PostgreSQL", "JavaScript", "CSS"],
+    icon: "🐉",
+    color: "#a07aff",
+    lightBg: "#f5f3ff",
+    darkBg: "#1a1528",
+    type: "Full Stack",
+    github: "https://github.com/Harlow7777/creature-collection",
+    note: "Personal project — demonstrates real-time DB sync, RLS-secured multi-user data, and modular vanilla JS architecture."
   },
   {
     title: "Change Request Workflow",
@@ -81,16 +93,6 @@ const PROJECTS = [
     type: "Cloud / Backend",
     github: "https://github.com/Harlow7777/aws-rest-api",
     note: "Portfolio build — demonstrates AWS architecture, Terraform IaC, and multi-database patterns."
-  },
-  {
-    title: "Enterprise User Provisioning",
-    desc: "Identity management system interfacing with 5,000+ UNIX servers and 27 IBM Mainframes via OIM, LDAP, and ActiveMQ for account lifecycle management.",
-    stack: ["Java", "Spring", "LDAP", "OIM", "ActiveMQ", "JDBC"],
-    icon: "◎",
-    color: "#10b981",
-    lightBg: "#f0fdf4",
-    darkBg: "#0c2018",
-    type: "Backend",
   },
   {
     title: "RAG Document Assistant",

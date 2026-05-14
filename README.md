@@ -3,24 +3,15 @@
 A clean, minimal single-page portfolio built with React + Vite.
 Features dark mode and mobile friendly menu.
 
-## Getting Started
+## Build for pages
 
 ```bash
-npm install
-npm run dev
-```
-
-Open http://localhost:5173 in your browser.
-
-## Build for Production
-
-```bash
-npm run build
+npm install gh-pages --save-dev
+npm run deploy
 ```
 
 ## Tech Stack
 
 - React 18
 - Vite
-- DM Sans + DM Mono (Google Fonts)
 - No external UI libraries — all custom CSS-in-JS

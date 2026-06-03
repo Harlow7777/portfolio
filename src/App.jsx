@@ -386,7 +386,7 @@ export default function App() {
             >
               View projects →
             </button>
-            <a href="https://drive.google.com/uc?export=download&id=1FEWMbeXw-YP5_Edyuru1W0QhMV44VJs2" target="_blank" rel="noreferrer" style={{
+            <a href="https://drive.google.com/uc?export=download&id=1Eg4DZYC8Onp_mzOpjbRmj_PV2RcQGyCu" target="_blank" rel="noreferrer" style={{
               background: "transparent", color: theme.text, border: `1px solid ${theme.border}`,
               cursor: "pointer", padding: "12px 24px", borderRadius: "8px", fontSize: "14px",
               fontFamily: "inherit", fontWeight: "400", textDecoration: "none",

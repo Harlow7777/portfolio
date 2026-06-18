@@ -351,16 +351,6 @@ export default function App() {
       {/* Hero */}
       <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "0 2rem", paddingTop: "56px" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", width: "100%", paddingTop: "6rem", paddingBottom: "6rem" }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: "6px",
-            background: darkMode ? "#0c1e2e" : "#f0f9ff",
-            border: `1px solid ${darkMode ? "#0ea5e944" : "#bae6fd"}`,
-            borderRadius: "100px", padding: "4px 12px", marginBottom: "2rem",
-            fontSize: "12px", color: "#0ea5e9", fontFamily: "'DM Mono', monospace",
-          }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", display: "inline-block", animation: "pulse 2s infinite" }} />
-            Available for new opportunities
-          </div>
           <h1 style={{
             fontSize: "clamp(42px, 7vw, 80px)", fontWeight: "300", lineHeight: "1.05",
             letterSpacing: "-0.03em", marginBottom: "1.5rem", color: theme.text,
